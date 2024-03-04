@@ -89,15 +89,27 @@
 //   .then((json) => console.log(json))
 //   .catch((error) => console.error(error));
 
-fetch("https://jsonplaceholder.typicode.com/users/3")
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    } else {
-      return response.json();
-    }
-  })
-  .then((data) => {
-    console.log(`name : ${data.name} , Company: ${data.company.name}`);
-  })
-  .catch((error) => console.log(error));
+// fetch("https://jsonplaceholder.typicode.com/users/3")
+//   .then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     } else {
+//       return response.json();
+//     }
+//   })
+//   .then((data) => {
+//     console.log(`name : ${data.name} , Company: ${data.company.name}`);
+//   })
+//   .catch((error) => console.log(error));
+
+
+// Error catching in async and await
+async function reject() {
+  try {
+    await Promise.reject(Error("OOps"));
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+reject();
